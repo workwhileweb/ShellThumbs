@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
@@ -60,5 +61,13 @@ namespace ShellThumbsDemo
 				}
 			}
 		}
-	}
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (string fileName in imageList1.Images.Keys)
+            {
+                imageList1.Images[fileName]?.Save(fileName + ".thumb.jpg",ImageFormat.Jpeg);
+            }
+        }
+    }
 }
